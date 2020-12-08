@@ -42,10 +42,10 @@ def add_employee():
 
 @app.route('/employee/update', methods=['PUT'])
 def update_employee():
-    body_req = request.json
-    nik = body_req.get('nik')
-    name = body_req.get('name')
-    start_year = body_req.get('start year')
+    body = request.json
+    nik = body.get('nik')
+    name = body.get('name')
+    start_year = body.get('start year')
     with engine.connect() as connection:
         qry = text("UPDATE public.employee SET name=:name, start_year=:start_year\
                     WHERE nik=:nik")
